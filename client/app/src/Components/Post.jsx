@@ -1,6 +1,6 @@
 const Post = ({ post }) => {
-  const deleteSinglePost = async (id) => {
-    console.log("idddd " + post._id);
+  const deleteSinglePost = async () => {
+    // console.log("idddd " + post._id);
     await fetch(`http://localhost:8080/deleteBlog/${post._id}`, {
       method: "DELETE",
     })
@@ -14,6 +14,16 @@ const Post = ({ post }) => {
         <p>{post.body}</p>
         <button className="red btn" onClick={() => deleteSinglePost()}>
           Delete
+        </button>
+        <button
+          className="btn yellow"
+          onClick={async () => {
+            console.log("edit ", post);
+            var ddata = await fetch(`http://localhost:8080/edit/${post._id}`);
+            await console.log(ddata.json());
+          }}
+        >
+          Edit
         </button>
       </div>
       <br />

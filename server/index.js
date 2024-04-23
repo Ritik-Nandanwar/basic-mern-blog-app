@@ -48,3 +48,7 @@ app.delete("/deleteBlog/:id", async (req, res) => {
     console.error(err);
   }
 });
+app.get("/edit/:id", (req, res) => {
+  console.log(req.params.id + "hue hue");
+  res.send({ msg: "google" });
+});
